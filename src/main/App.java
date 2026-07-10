@@ -1,4 +1,4 @@
-package com.example;
+package main;
 
 public class App {
 
