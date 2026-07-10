@@ -1,4 +1,7 @@
 package tests;
+import main.App;
+
+
 
 import org.junit.jupiter.api.Test;
 
