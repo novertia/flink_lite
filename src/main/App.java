@@ -13,7 +13,7 @@ public class App {
          Source source = new QueueSource();
          Sink sink = new PrintSink();
          DataStream stream = new DataStream();
-         stream.addSource(source).addSink(sink);
+         stream.addSource(source).map(x -> x + "Souptik").addSink(sink);
          stream.execute();
          stream.addShutDownDataStreamHook();
          try {

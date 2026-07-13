@@ -2,6 +2,7 @@ package datastream;
 
 import Sink.Sink;
 import Source.Source;
+import operators.MapOperator;
 import operators.Operator;
 import operators.SinkOperator;
 import operators.SourceOperator;
@@ -9,6 +10,7 @@ import operators.SourceOperator;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class DataStream {
     ExecutorService executorService;
@@ -28,6 +30,11 @@ public class DataStream {
 
     public void addSink(Sink s){
         tail = new SinkOperator(s, tail);
+    }
+
+    public DataStream map(Function<String, String> func){
+        tail = new MapOperator(func, tail);
+        return this;
     }
 
     public void execute(){
